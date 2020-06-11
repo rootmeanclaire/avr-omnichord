@@ -1,14 +1,18 @@
 #include <util/delay.h>
-#include "midi.h"
+#include "chords.h"
 
 int main() {
 	midiInitTx();
 
 	while (1) {
-		midiNoteOn(69);
-		_delay_ms(1000);
-		midiNoteOff(69);
-		_delay_ms(100);
+		chordOn(CR_C, BMASK_MAJ);
+		_delay_ms(2000);
+		chordOn(CR_G, BMASK_MAJ);
+		_delay_ms(2000);
+		chordOn(CR_A, BMASK_MIN);
+		_delay_ms(2000);
+		chordOn(CR_F, BMASK_MAJ);
+		_delay_ms(2000);
 	}
 
 	return 0;
