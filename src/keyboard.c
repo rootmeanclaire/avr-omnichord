@@ -116,11 +116,11 @@ uint8_t keycodeToChord(uint8_t keycode) {
 }
 
 uint8_t getButtonMask(uint8_t keycode) {
-	if (keycode == KEYCODE_Q || keycode == KEYCODE_W || keycode == KEYCODE_E || keycode == KEYCODE_R || keycode == KEYCODE_T || keycode == KEYCODE_Y || keycode == KEYCODE_U || keycode == KEYCODE_I || keycode == KEYCODE_O) {
+	if (keycode == KEYCODE_Q || keycode == KEYCODE_W || keycode == KEYCODE_E || keycode == KEYCODE_R || keycode == KEYCODE_T || keycode == KEYCODE_Y || keycode == KEYCODE_U || keycode == KEYCODE_I || keycode == KEYCODE_O || keycode == KEYCODE_P) {
 		return BMASK_MAJ;
-	} else if (keycode == KEYCODE_A || keycode == KEYCODE_S || keycode == KEYCODE_D || keycode == KEYCODE_F || keycode == KEYCODE_G || keycode == KEYCODE_H || keycode == KEYCODE_J || keycode == KEYCODE_K || keycode == KEYCODE_L) {
+	} else if (keycode == KEYCODE_A || keycode == KEYCODE_S || keycode == KEYCODE_D || keycode == KEYCODE_F || keycode == KEYCODE_G || keycode == KEYCODE_H || keycode == KEYCODE_J || keycode == KEYCODE_K || keycode == KEYCODE_L || keycode == KEYCODE_SEMICOLON) {
 		return BMASK_MIN;
-	} else if (keycode == KEYCODE_Z || keycode == KEYCODE_X || keycode == KEYCODE_C || keycode == KEYCODE_V || keycode == KEYCODE_B || keycode == KEYCODE_N || keycode == KEYCODE_M || keycode == KEYCODE_COMMA || keycode == KEYCODE_PERIOD) {
+	} else if (keycode == KEYCODE_Z || keycode == KEYCODE_X || keycode == KEYCODE_C || keycode == KEYCODE_V || keycode == KEYCODE_B || keycode == KEYCODE_N || keycode == KEYCODE_M || keycode == KEYCODE_COMMA || keycode == KEYCODE_PERIOD || keycode == KEYCODE_SLASH) {
 		return BMASK_SEV;
 	} else {
 		return 0;
