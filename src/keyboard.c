@@ -75,8 +75,6 @@ ISR(PCINT2_vect) {
 				}
 			}
 
-			PORTD ^= (1 >> 7);
-
 			reading = 0;
 
 			//Clear temp variables to prepare for next read

@@ -13,8 +13,6 @@ int main() {
 
 	sei();
 
-	DDRD |= (1 << 7);
-
 	while (1) {
 		keycode = getCurrKeyCode();
 
