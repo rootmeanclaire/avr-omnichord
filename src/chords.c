@@ -26,38 +26,40 @@ void lastChordOff() {
 //chordRott = one of the CR_... defines
 //buttonMask = bitwise or combo of BMASK_ defines
 void chordOn(uint8_t chordRoot, uint8_t buttonMask) {
-	uint8_t const *notes;
-	int8_t root;
+	if (chordRoot != CR_NULL) {
+		uint8_t const *notes;
+		int8_t root;
 
-	//Determine chord quality from button mask
-	if (buttonMask == BMASK_MAJ) {
-		notes = CHORD_MAJ_TRI;
-	} else if (buttonMask == BMASK_MIN) {
-		notes = CHORD_MIN_TRI;
-	} else if (buttonMask == BMASK_SEV) {
-		notes = CHORD_DOM_SEV;
-	} else if (buttonMask == (BMASK_MAJ | BMASK_SEV)) {
-		notes = CHORD_MAJ_SEV;
-	} else if (buttonMask == (BMASK_MIN | BMASK_SEV)) {
-		notes = CHORD_MIN_SEV;
-	} else {
-		//Don't do anything if invalid button combination
-		return;
-	}
+		//Determine chord quality from button mask
+		if (buttonMask == BMASK_MAJ) {
+			notes = CHORD_MAJ_TRI;
+		} else if (buttonMask == BMASK_MIN) {
+			notes = CHORD_MIN_TRI;
+		} else if (buttonMask == BMASK_SEV) {
+			notes = CHORD_DOM_SEV;
+		} else if (buttonMask == (BMASK_MAJ | BMASK_SEV)) {
+			notes = CHORD_MAJ_SEV;
+		} else if (buttonMask == (BMASK_MIN | BMASK_SEV)) {
+			notes = CHORD_MIN_SEV;
+		} else {
+			//Don't do anything if invalid button combination
+			return;
+		}
 
-	root = ((chordRoot - CR_C) * INTVL_PER_FIFTH) + (2 * INTVL_OCTAVE);
+		root = ((chordRoot - CR_C) * INTVL_PER_FIFTH) + (2 * INTVL_OCTAVE);
 
-	lastChordOff();
+		lastChordOff();
 
-	for (uint8_t i = 0; i < NUM_CHORD_VOICES; ++i) {
-		currHarmony[i] = (
-			(
-				(root + notes[i]) % INTVL_OCTAVE
-			) + (
-				(currOctave + 1) * INTVL_OCTAVE
-			)
-		);
+		for (uint8_t i = 0; i < NUM_CHORD_VOICES; ++i) {
+			currHarmony[i] = (
+				(
+					(root + notes[i]) % INTVL_OCTAVE
+				) + (
+					(currOctave + 1) * INTVL_OCTAVE
+				)
+			);
 
-		midiNoteOn(currHarmony[i]);
+			midiNoteOn(currHarmony[i]);
+		}
 	}
 }

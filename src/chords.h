@@ -33,6 +33,7 @@
 #define CR_E 7
 #define CR_B 8
 #define CR_F_SHARP 9
+#define CR_NULL 0xFF
 
 //Intervals
 #define INTVL_UNISON 0
@@ -55,5 +56,8 @@
 #define BMASK_MAJ (1 << 0)
 #define BMASK_MIN (1 << 1)
 #define BMASK_SEV (1 << 2)
+
+void lastChordOff();
+void chordOn(uint8_t chordRoot, uint8_t buttonMask);
 
 #endif
