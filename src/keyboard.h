@@ -39,5 +39,6 @@
 void keyboardInitRx();
 uint8_t getCurrKeyCode();
 uint8_t keycodeToChord(uint8_t keycode);
+uint8_t getButtonMask(uint8_t keycode);
 
 #endif

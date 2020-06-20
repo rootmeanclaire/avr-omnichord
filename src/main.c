@@ -20,7 +20,7 @@ int main() {
 
 		if (keycode != keycodeLast) {
 			if (keycode != KEYCODE_BREAK) {
-				chordOn(keycodeToChord(keycode), BMASK_MAJ);
+				chordOn(keycodeToChord(keycode), getButtonMask(keycode));
 			} else {
 				lastChordOff();
 			}
