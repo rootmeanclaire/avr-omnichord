@@ -1,6 +1,17 @@
+# PlatformIO files
 .pio
 .vscode
 include
 lib
 test
 .travis.yml
+
+# Kicad temp files
+*_bak
+*-bak*
+*-cache*
+
+# Generated board files
+*.gbr
+*.gbrjob
+*.drl
